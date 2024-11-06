@@ -5,7 +5,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="Content-Security-Policy"
-            content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' https://cdn.jsdelivr.net;">
+            content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'nonce-abc123' https://cdn.jsdelivr.net;">
       <title>CodeHubx Documentation</title>
       <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
       <style>
@@ -241,22 +241,17 @@
             <div id="right-nav-content"></div>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
-      <script>
+      <script nonce="abc123">
             document.addEventListener("DOMContentLoaded", () => {
                   loadSidebar();
                   loadPage("./md-files/README.md");
-
+                  loadPage("data/README.md");
                   const menuButton = document.getElementById("menu-button");
                   menuButton.addEventListener("click", () => {
                         const sidebar = document.getElementById("sidebar");
-                        if (sidebar.style.display === "block") {
-                              sidebar.style.display = "none";
-                        } else {
-                              sidebar.style.display = "block";
-                        }
+                        sidebar.style.display = sidebar.style.display === "block" ? "none" : "block";
                   });
             });
-
             const converter = new showdown.Converter();
             const iconMap = {
                   Overview: "home",
@@ -298,8 +293,8 @@
                         .map((file) => {
                               const iconClass = iconMap[file.title] || "description";
                               return `<a href="#" data-link="${file.file}">
-                  <span class="material-symbols-outlined">${iconClass}</span> ${file.title}
-                </a>`;
+            <span class="material-symbols-outlined">${iconClass}</span> ${file.title}
+      </a>`;
                         })
                         .join("");
                   document.getElementById("sidebar-content").innerHTML = sidebarContent;
