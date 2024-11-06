@@ -1,5 +1,19 @@
+# _config.yml
+
+# Set the base URL for your site if it's hosted on GitHub Pages under a project repo
+baseurl: "/gitTestBook"  # replace 'your-repo-name' with your actual repo name
+
+# Enable Jekyll to include the 'data' directory in the output
 include:
-  - _data
-  - data
-  - data/
-  - _data/
+  - data  # Specify the 'data' folder to make sure it's included in the site build
+
+# Add any other configurations as needed
+title: "Your Project Title"
+description: "A brief description of your project"
+markdown: kramdown  # Use kramdown for Markdown processing
+theme: jekyll-theme-minimal  # Customize the theme as needed
+
+# Ensure Jekyll processes any additional folders
+collections: 
+  data:
+    output: true
