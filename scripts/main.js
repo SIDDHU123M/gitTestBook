@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   loadSidebar();
-  loadPage("scripts/README.md");
+  loadPage("data/README.md");
 
   const menuButton = document.getElementById("menu-button");
   menuButton.addEventListener("click", () => {
@@ -30,7 +30,7 @@ let files = [];
 let currentIndex = 0;
 
 async function loadSidebar() {
-  const response = await fetch("scripts/summary.md");
+  const response = await fetch("data/summary.md");
   const markdown = await response.text();
   files = parseSidebarMarkdown(markdown);
   renderSidebar(files);
@@ -45,7 +45,7 @@ function parseSidebarMarkdown(markdown) {
     const match = line.match(/^\*\s+\[(.*?)\]\((.*?)\)$/);
     if (match) {
       const [_, text, link] = match;
-      fileList.push({ title: text, file: `scripts/${link}` });
+      fileList.push({ title: text, file: `data/${link}` });
     }
   });
   return fileList;
