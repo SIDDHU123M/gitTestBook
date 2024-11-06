@@ -4,8 +4,9 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Content Security Policy (must be inside <head>) -->
       <meta http-equiv="Content-Security-Policy"
-            content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'nonce-abc123' https://cdn.jsdelivr.net;">
+            content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline';">
       <title>CodeHubx Documentation</title>
       <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
       <style>
@@ -245,7 +246,6 @@
             document.addEventListener("DOMContentLoaded", () => {
                   loadSidebar();
                   loadPage("./md-files/README.md");
-                  loadPage("data/README.md");
                   const menuButton = document.getElementById("menu-button");
                   menuButton.addEventListener("click", () => {
                         const sidebar = document.getElementById("sidebar");
