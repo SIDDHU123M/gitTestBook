@@ -1,7 +1,7 @@
 # _config.yml
 
 # Base URL for GitHub Pages
-baseurl: "https://siddhu123m.github.io/gitTestBook/"  # Replace 'your-repo-name' with your actual repository name
+baseurl: "https://siddhu123m.github.io/gitTestBook/" # Replace 'your-repo-name' with your actual repository name
 
 # Ensure the 'data' directory and all its files are included
 include:
@@ -10,8 +10,8 @@ include:
 # Treat the 'data' directory as a collection
 collections:
   data:
-    output: true  # Ensures files in 'data' are output as individual pages
-    permalink: /data/:title/  # Sets a clean URL structure for each markdown file
+    output: true # Ensures files in 'data' are output as individual pages
+    permalink: /data/:title/ # Sets a clean URL structure for each markdown file
 
 # Default configuration to process Markdown files in 'data'
 defaults:
@@ -19,10 +19,10 @@ defaults:
       path: "data"
       type: "data"
     values:
-      layout: default  # Ensure each page has a layout (if you have a default layout defined)
+      layout: default # Ensure each page has a layout (if you have a default layout defined)
 
 # Other Jekyll settings
 title: "gitTestBook"
 description: "A brief description of your project"
-# markdown: kramdown
+markdown: kramdown
 theme: jekyll-theme-minimal
